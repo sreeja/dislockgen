@@ -29,7 +29,7 @@ def get_coarsening(first, locklist):
             each_ops = set(each.ops.keys())
             common = each_ops.intersection(first_ops)
             if common:
-                print('can coarsen', first.name, each.name)
+                # print('can coarsen', first.name, each.name)
                 lockname = '_'.join(sorted(each_ops.union(first_ops)))
                 if not lockname in result:
                     result[lockname] = Lock(lockname)
@@ -92,7 +92,7 @@ def generate_lattice(filename):
 
     total_levels = len(finest)
     base = [finest]
-    while total_levels > 0:
+    while total_levels > 1:
         next_level = get_level(base)
         levels += [next_level]
         base = next_level
@@ -105,7 +105,7 @@ def generate_lattice(filename):
 dirname = os.path.join('/', 'Users', 'snair', 'works',
                       'dislock-experiments', 'dislockgen')
 
-filename = os.path.join(dirname, 'auction3.json')
+filename = os.path.join(dirname, 'auction2.json')
 
 granularity_lattice = generate_lattice(filename)
 i = 0
@@ -121,3 +121,53 @@ for level in granularity_lattice:
 # for each in granularity_lattice:
 #     generate_modes(each, dirname)
 #     generate_placements(each, dirname)
+
+
+#### test
+filename = os.path.join(dirname, 'auction3.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 8)
+
+filename = os.path.join(dirname, 'auction2.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 2)
+
+filename = os.path.join(dirname, 'auction1.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 2)
+
+filename = os.path.join(dirname, 'sample2.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 1)
+
+filename = os.path.join(dirname, 'sample3.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 2)
+
+filename = os.path.join(dirname, 'sample4.json')
+granularity_lattice = generate_lattice(filename)
+i = 0
+for level in granularity_lattice:
+    for combo in level:
+        i += 1
+assert(i == 4)
