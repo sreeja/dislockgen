@@ -1,0 +1,34 @@
+[
+  {
+    "name":"unregisterbuyer",
+    "conflicts":[
+      {"conflict":"placebid",
+      "param":"buyer"}
+    ]
+  },
+  {
+    "name":"placebid",
+    "conflicts":[
+      {"conflict":"unregisterbuyer",
+      "param":"buyer"},
+      {"conflict":"closeauction",
+      "param":"auction"}
+    ]
+  },
+  {
+    "name":"closeauction",
+    "conflicts":[
+      {"conflict":"placebid",
+      "param":"auction"},
+      {"conflict":"removebid",
+      "param":"auction"}
+    ]
+  },
+  {
+    "name":"removebid",
+    "conflicts":[
+      {"conflict":"closeauction",
+      "param":"auction"}
+    ]
+  }
+]

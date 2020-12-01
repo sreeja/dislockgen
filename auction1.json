@@ -1,0 +1,25 @@
+[
+  {
+    "name":"addproduct",
+    "conflicts":[
+      {"conflict":"unregisterseller",
+      "param":"seller"}
+    ]
+  },
+  {
+    "name":"unregisterseller",
+    "conflicts":[
+      {"conflict":"addproduct",
+      "param":"seller"},
+      {"conflict":"createauction",
+      "param":"seller"}
+    ]
+  },
+  {
+    "name":"createauction",
+    "conflicts":[
+      {"conflict":"unregisterseller",
+      "param":"seller"}
+    ]
+  }
+]

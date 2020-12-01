@@ -1,0 +1,25 @@
+[
+    {
+        "name":"operationa",
+        "conflicts":[
+            {"conflict":"operationb",
+            "param":"param1"}
+        ]
+    },
+    {
+        "name":"operationb",
+        "conflicts":[
+            {"conflict":"operationa",
+            "param":"param1"},
+            {"conflict":"operationc",
+            "param":"param1"}
+        ]
+    },
+    {
+        "name":"operationc",
+        "conflicts":[
+            {"conflict":"operationb",
+            "param":"param1"}
+        ]
+    }
+]
