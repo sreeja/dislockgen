@@ -13,10 +13,12 @@ def get_finest_locks(filename):
             lockname = '_'.join(sorted([t['name'], c['conflict']]))
             if not lockname in locks:
                 lock = Lock(lockname)
+                lock.ops[c['conflict']] = ''
+                lock.ops[t['name']] = ''
+                lock.param = c['param']
                 locks[lockname] = lock
-            locks[lockname].ops[c['conflict']] = ''
-            locks[lockname].param = c['param']
-
+    #             print(lockname, lock.ops, lock.param)
+    # print(len(locks))
     return locks
 
 
@@ -96,9 +98,11 @@ def generate_lattice(filename):
     levels += [[finest]]
 
     total_levels = len(finest)
+    # print('finest', len(finest))
     base = [finest]
     while total_levels > 1:
         next_level = get_level(base)
+        # print('level', next_level)
         levels += [next_level]
         base = next_level
         total_levels -= 1
@@ -106,56 +110,3 @@ def generate_lattice(filename):
     cleaned_levels = remove_duplicates(levels)
     return cleaned_levels
 
-
-#### test
-import os
-
-dirname = os.getcwd()
-
-filename = os.path.join(dirname, 'auction3.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 8)
-
-filename = os.path.join(dirname, 'auction2.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 2)
-
-filename = os.path.join(dirname, 'auction1.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 2)
-
-filename = os.path.join(dirname, 'sample2.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 1)
-
-filename = os.path.join(dirname, 'sample3.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 2)
-
-filename = os.path.join(dirname, 'sample4.json')
-granularity_lattice = generate_lattice(filename)
-i = 0
-for level in granularity_lattice:
-    for combo in level:
-        i += 1
-assert(i == 4)

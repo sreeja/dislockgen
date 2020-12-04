@@ -4,4 +4,4 @@ class Lock:
         self.mode = '' #sharex, mutex
         self.ops = {} #key:opname, value:mode
         self.placement = '' # cent, clsut, dist
-        self.params = []
+        self.param = ''
