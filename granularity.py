@@ -110,8 +110,7 @@ def generate_lattice(filename):
 #### test
 import os
 
-dirname = os.path.join('/', 'Users', 'snair', 'works',
-                      'dislock-experiments', 'dislockgen')
+dirname = os.getcwd()
 
 filename = os.path.join(dirname, 'auction3.json')
 granularity_lattice = generate_lattice(filename)
