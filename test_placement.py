@@ -16,8 +16,6 @@ class TestPlacement(unittest.TestCase):
         dirname = os.getcwd() + 'dislockgen'
         appname = 'test'
         gran = 'granularity1'
-        if(os.path.exists(os.path.join(dirname, appname, gran))):
-            shutil.rmtree(os.path.join(dirname, appname, gran))
         lst = []
         for i in range(3):
             l = Lock('op'+str(i))
