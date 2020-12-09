@@ -1,6 +1,5 @@
 import unittest
 import os
-import shutil
 import placement
 from Lock import Lock
 
@@ -24,3 +23,6 @@ class TestPlacement(unittest.TestCase):
         for i in range(1, 28):
             print(i)
             assert(os.path.exists(os.path.join(dirname, appname, gran, 'locktype'+str(i)+'.json')))
+
+if __name__ == '__main__':
+    unittest.main()
