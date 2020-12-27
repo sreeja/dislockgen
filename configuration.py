@@ -4,7 +4,7 @@ import placement
 import mode
 
 dirname = os.getcwd()
-appname = 'auction3'
+appname = 'sample3'
 filename = os.path.join(dirname, appname+'.json')
 
 finest_locks = granularity.get_finest_locks(filename)

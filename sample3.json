@@ -3,23 +3,23 @@
         "name":"operationa",
         "conflicts":[
             {"conflict":"operationb",
-            "param":"param1"}
+            "param":"param"}
         ]
     },
     {
         "name":"operationb",
         "conflicts":[
             {"conflict":"operationa",
-            "param":"param1"},
+            "param":"param"},
             {"conflict":"operationc",
-            "param":"param1"}
+            "param":"param"}
         ]
     },
     {
         "name":"operationc",
         "conflicts":[
             {"conflict":"operationb",
-            "param":"param1"}
+            "param":"param"}
         ]
     }
 ]
