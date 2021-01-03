@@ -21,6 +21,7 @@ def generate_placements(locklist, dirname, appname, gran):
         with open(outputfile, 'w') as f:
             json.dump(content, f)
         i += 1
+    return i - 1
 
 
 def get_placement_configs(locklist, prev):

@@ -102,4 +102,5 @@ def generate_mode(locklist, dirname, appname, gran):
         with open(outputfile, 'w') as f:
             json.dump(content, f)
         i += 1
+    return i - 1
 
