@@ -14,12 +14,17 @@ Cost = {CENT:{'paris':127.484,'tokyo':866.836,'singapore':897.060,'capetown':595
         DIST:{'paris':701.746,'tokyo':956.047,'singapore':1051.981,'capetown':975.570,'newyork':539.720}
         }
 Exec = {'a':0.5, 'b':1.2}
-workload = {'workloadeqeq':{'a':[100,100,100,100,100],'b':[100,100,100,100,100]},
-            'workloadeqhot':{'a':[500,0,0,0,0],'b':[500,0,0,0,0]},
-            'workloadeqclust':{'a':[167,167,166,0,0],'b':[500,0,0,0,0]},
-            'workloadhoteq':{'a':[200,200,200,200,200],'b':[0,0,0,0,0]},
-            'workloadhothot':{'a':[1000,0,0,0,0],'b':[0,0,0,0,0]},
-            'workloadhotclust':{'a':[334,333,333,0,0],'b':[0,0,0,0,0]}
+# Exec = {'a':0.5, 'b':0.5}
+# Exec = {'a':0.5, 'b':500}
+workload = {#'workloadeqeq':{'a':[100,100,100,100,100],'b':[100,100,100,100,100]},
+            # 'workloadeqhot':{'a':[500,0,0,0,0],'b':[500,0,0,0,0]},
+            # 'workloadeqclust':{'a':[167,167,166,0,0],'b':[500,0,0,0,0]},
+            # 'workloadeqclustreal':{'a':[167,167,166,0,0],'b':[167,167,166,0,0]},
+            # 'workloadhoteq':{'a':[200,200,200,200,200],'b':[0,0,0,0,0]},
+            # 'workloadhothot':{'a':[1000,0,0,0,0],'b':[0,0,0,0,0]},
+            # 'workloadhotclust':{'a':[334,333,333,0,0],'b':[0,0,0,0,0],
+            'workloadG':{'a':[500,0,0,0,0],'b':[0,0,0,250,250]},
+            'workloadF':{'a':[500,0,0,0,0],'b':[100,100,100,100,100]}
             }
 locks = {'labp11':{OPS:{'a':{MODE:EXCLUSIVE},'b':{MODE:SHARED}}, PLACEMENT:CENT},
         'labp12':{OPS:{'a':{MODE:EXCLUSIVE},'b':{MODE:SHARED}}, PLACEMENT:CLUST},
