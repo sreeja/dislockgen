@@ -3,7 +3,8 @@ import json
 from Lock import Lock
 
 
-configurations = ['cent', 'clust', 'dist']
+# configurations = ['cent', 'clust', 'dist']
+configurations = ['houston', 'paris', 'singapore']
 
 def generate_placements(locklist, dirname, appname, gran):
     result = get_placement_configs(locklist, [])
